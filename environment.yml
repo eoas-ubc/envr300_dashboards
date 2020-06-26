@@ -1,0 +1,10 @@
+name: envr300
+channels:
+  - eoas_ubc
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.7.*
+  - pandas
+  - matplotlib
+

@@ -1,3 +1,4 @@
+```python
 """
 download the Mauna Loa CO2 data as a csv file and plot it
 """
@@ -6,7 +7,9 @@ import pandas as pd
 import matplotlib
 from matplotlib import pyplot as plt
 import numpy as np
+```
 
+```python
 #
 # use antialiased driver for batch printing (no window popup)
 #
@@ -32,5 +35,8 @@ fig,ax = plt.subplots(1,1,figsize=(10,10))
 ax.grid(True)
 ax.plot(week, co2)
 fig.savefig("co2_fig.png")
+```
 
+```python
 
+```

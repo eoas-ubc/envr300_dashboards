@@ -1,4 +1,4 @@
-# plot the Mauna Loa time series
+# Dashboards to explore time series for ENVR300
 
 ```
 conda env create

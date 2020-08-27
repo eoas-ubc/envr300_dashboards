@@ -48,13 +48,14 @@ Import the data and concatenate the files. This takes each file (one year of dat
 <!-- #endregion -->
 
 ```python colab={"base_uri": "https://localhost:8080/", "height": 72} colab_type="code" executionInfo={"elapsed": 5135, "status": "ok", "timestamp": 1590013640924, "user": {"displayName": "Rivkah Gardner-Frolick", "photoUrl": "", "userId": "01660883882147847432"}, "user_tz": 420} id="JBiBubDeAOOX" outputId="7fc5d8fd-d8f6-4fe7-8434-e47f78660658"
-# dfs = pd.read_csv("O3_2017.csv")
+dfs = pd.read_csv("data\O3_2017.csv")
 # dfs = pd.read_excel("O3_2017.xlsx")
 
-files = glob.glob("O3_*.xlsx") 
-dfs = [pd.read_excel(f,index_col=0, parse_dates=['DATE_PST']) for f in files]
+# files = glob.glob("data/O3_2017.csv") 
+# dfs = [pd.read_csv(f,index_col=0, parse_dates=['DATE_PST']) for f in files]
 
-all_O3 = pd.concat(dfs) 
+all_O3 = dfs 
+# all_O3 = pd.concat(dfs) 
 ```
 
 <!-- #region colab_type="text" id="oStzyJkTIKNb" -->
@@ -96,7 +97,7 @@ Select the station from the data
 
 ```python colab={} colab_type="code" id="MHRSFQqEJS1s"
 stat_O3 = all_O3.loc[all_O3.STATION_NAME == stat_name]
-
+stat_O3.columns
 ```
 
 <!-- #region colab_type="text" id="uBPdeAerJIdt" -->

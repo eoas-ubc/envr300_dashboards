@@ -55,7 +55,7 @@ Import the data and concatenate the files. This takes each file (one year of dat
 # dfs = [pd.read_csv(f,index_col=0, parse_dates=['DATE_PST']) for f in files]
 # all_O3 = pd.concat(dfs)
 
-all_O3 = pd.read_csv("data/YVR-2017.csv",index_col=0, parse_dates=['DATE_PST'])
+all_O3 = pd.read_csv("data/YVR and Abbotsford 2017.csv",index_col=0, parse_dates=['date_pst'])
 ```
 
 <!-- #region colab_type="text" id="oStzyJkTIKNb" -->
@@ -200,7 +200,7 @@ MDA8_stat=stat_8hr_O3.resample('D').max()
 ax = MDA8_stat.plot(figsize=(9, 3), color='k')
 ax.set_ylabel("MDA8 O$_3$ [ppb]")
 ax.set_xlabel('Date')
-ax.set_title('MDA8 of ' + stat_name)
+ax.set_title(f'MDA8 of ' + stat_name)
 plt.show()
 ```
 

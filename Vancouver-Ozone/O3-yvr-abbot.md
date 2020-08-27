@@ -131,21 +131,24 @@ BUT ... to overlay this directly onto the raw data plot is hard because x-axis i
 
 ```python
 # rolling 8hr moving "average" (hence the .mean()); points are 1hr apart
-all_8hr_O3 = all_O3.Abbotsford_ppb.rolling(8,min_periods=6).mean()
+app_8hr_O3 = all_O3.Abbotsford_ppb.rolling(8,min_periods=6).mean()
+yvr_8hr_O3 = all_O3.YVR_ppb.rolling(8,min_periods=6).mean()
 ```
 
 ```python
 # resample result by "day" (the 'D'), choosing the max value. 
-MDA8_data=all_8hr_O3.resample('D').max()
-# MDA8_data.head
+MDA8_app=app_8hr_O3.resample('D').max()
+MDA8_yvr=yvr_8hr_O3.resample('D').max()
 ```
 
 ```python colab={} colab_type="code" id="Kl5jIy6gJUIR"
+# do this similarly to above - get labels, legend, etc. 
 # Plot the MDA8 using pandas plotting
-ax = MDA8_data.plot(figsize=(9, 3), color='k')
+ax = MDA8_app.plot(figsize=(9, 3), color='r')
+ax = MDA8_yvr.plot(color='b')
 ax.set_ylabel("MDA8 O$_3$ [ppb]")
 ax.set_xlabel('Date')
-ax.set_title('MDA8 of ' + stat_name)
+ax.set_title('MDA8 of Abb (Red) and YVR(Blue)')
 plt.show()
 ```
 
